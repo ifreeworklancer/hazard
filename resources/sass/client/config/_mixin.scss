@@ -1,0 +1,22 @@
+@mixin scrollBar-gradient($height) {
+  position: relative;
+
+  &::before {
+    content: '';
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: $height;
+    background: linear-gradient(187.15deg, rgba(34, 34, 34, 0) 12.04%, #222222 87.94%);
+    transition: .5s;
+    z-index: 5;
+    pointer-events: none;
+    display: none;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      display: block;
+    }
+  }
+}

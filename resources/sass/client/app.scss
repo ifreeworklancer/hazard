@@ -1,0 +1,23 @@
+@import "~normalize.css";
+@import "../../fonts/fonts.css";
+
+@import "config/mixin";
+@import "config/placeholders";
+@import "config/variables";
+
+@import "base/body";
+@import "base/btn";
+@import "base/layout";
+
+@import "modules/selected";
+@import "modules/scrollBar";
+@import "modules/form";
+
+@import "layout/sidebar";
+@import "layout/products";
+@import "layout/product";
+@import "layout/previews";
+@import "layout/page";
+@import "layout/cart";
+@import "layout/login";
+

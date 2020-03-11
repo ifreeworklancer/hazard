@@ -1,0 +1,34 @@
+$padding-products-x-md: 15px;
+$padding-products-x-lg: 50px;
+$padding-products-x-xl: 70px;
+$padding-bottom: 30%;
+
+.content-page {
+  @include scrollBar-gradient($padding-bottom);
+  padding: 0 !important;
+
+  .content-body {
+    padding: 20px $padding-products-x-md;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      padding: 20px $padding-products-x-md $padding-bottom;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      padding: 20px $padding-products-x-lg;
+    }
+
+     @media (min-width: map_get($grid-breakpoints, xl)) {
+      padding: 100px $padding-products-x-xl;
+    }
+  }
+
+  .page-title {
+    margin-top: 0;
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+}

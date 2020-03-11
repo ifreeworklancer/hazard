@@ -1,0 +1,47 @@
+.form-group {
+  position: relative;
+  margin-bottom: 70px;
+
+  &.in-focus {
+
+    label {
+      top: -30px;
+    }
+
+    .form-control {
+
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1rem;
+    color: $secondary;
+    transition: .5s;
+  }
+  
+  .form-control {
+    position: relative;
+    
+    input {
+      padding: 5px 0;
+      color: #fff;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 30px;
+      height: 2px;
+      background: #fff;
+      transition: .5s;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.content-login {
+  padding-top: 100px;
+
+  .content-body {
+    padding: 20px 0 15px;
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      padding: 100px 0 40px;
+    }
+  }
+}

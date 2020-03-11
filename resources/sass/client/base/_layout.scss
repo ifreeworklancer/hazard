@@ -1,0 +1,126 @@
+$padding-products-x-md: 15px;
+$padding-products-x-lg: 50px;
+$padding-products-x-xl: 70px;
+.row {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: map_get($grid-breakpoints, xl)) {
+    flex-direction: row;
+  }
+}
+
+.sidebar-col {
+
+  @media (min-width: map_get($grid-breakpoints, xl)) {
+    width: 350px;
+    height: 100vh;
+  }
+}
+
+.content-col {
+
+  &--product {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      flex-direction: row;
+    }
+
+    .content {
+      order: 2;
+
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        order: 1;
+      }
+    }
+
+    .previews {
+      order: 1;
+
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        order: 2;
+      }
+    }
+  }
+
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    display: flex;
+    height: calc(100vh - 105px);
+  }
+
+  @media (min-width: map_get($grid-breakpoints, xl)) {
+    height: 100vh;
+    flex: 2;
+  }
+
+  .content {
+    padding: 0 $padding-products-x-md;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      width: 55%;
+      border-right: 2px solid #fff;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      padding: 0 $padding-products-x-lg;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      padding: 0 $padding-products-x-xl;
+      height: 100%;
+    }
+
+    &-header {
+      position: relative;
+      padding: 20px 0 15px;
+
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        padding: 100px 0 40px;
+      }
+
+      &--nav {
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          height: 2px;
+          background: #363636;
+          display: none;
+
+          @media (min-width: map_get($grid-breakpoints, md)) {
+            left: -$padding-products-x-md;
+            right: -$padding-products-x-md;
+            display: block;
+          }
+
+          @media (min-width: map_get($grid-breakpoints, lg)) {
+            left: -$padding-products-x-lg;
+            right: -$padding-products-x-lg;
+          }
+
+          @media (min-width: map_get($grid-breakpoints, xl)) {
+            left: -$padding-products-x-xl;
+            right: -$padding-products-x-xl;
+          }
+        }
+      }
+    }
+
+    &-body {
+      flex-grow: 1;
+      padding-bottom: 60px;
+
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        height: 0;
+        padding-top: 40px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}

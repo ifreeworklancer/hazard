@@ -1,0 +1,211 @@
+.sidebar {
+  position: relative;
+  z-index: 999;
+  height: 105px;
+
+  @media (min-width: map_get($grid-breakpoints, xl)) {
+    height: 100%;
+  }
+
+  .menu-mask {
+    @extend %pos;
+    position: fixed;
+    background: rgba(34, 34, 34, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+    z-index: 99;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    left: 0;
+    transform: translateX(-101%);
+    transition: .5s;
+    z-index: 100;
+    background: $dark;
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      position: relative;
+      transform: none;
+      height: 100%;
+    }
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 2px solid #fff;
+    }
+
+    .logo {
+      padding: 60px 0;
+      max-width: 140px;
+
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        max-width: 100%;
+        padding: 60px 92px 0;
+      }
+
+      img {
+        width: 100%;
+        max-width: 215px;
+      }
+    }
+
+    .nav {
+      padding-bottom: 20px;
+      width: 100%;
+
+      &-list {
+        li {
+          a {
+            position: relative;
+            display: block;
+            padding: 20px 93px;
+            color: #CECECE;
+            transition: .5s;
+            font-size: .875rem;
+            vertical-align: middle;
+
+            @media (min-width: map_get($grid-breakpoints, xl)) {
+              font-size: $font-size-base;
+            }
+
+            &:hover,
+            &.router-link-active {
+              color: #fff;
+
+              &::before,
+              &::after {
+                width: 31px;
+              }
+            }
+
+            &::before,
+            &::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              width: 0;
+              background: #fff;
+              transition: .5s;
+            }
+
+            &::before {
+              left: 0;
+            }
+
+            &::after {
+              right: 0;
+            }
+          }
+        }
+      }
+
+      .copyright {
+        margin-top: 30px;
+        text-align: center;
+        font-size: .75rem;
+        color: $secondary;
+      }
+    }
+  }
+
+  .mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      display: none;
+    }
+
+    .logo {
+      max-width: 55px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &-card {
+      display: flex;
+      align-items: center;
+
+      .card-number {
+        padding-top: 5px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .open-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 8px;
+    height: 35px;
+    cursor: pointer;
+
+    .line {
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  .close-menu {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 25px;
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      display: none;
+    }
+
+    .line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      border-radius: 2px;
+      background: #545454;
+
+      &--left {
+        transform: rotate(-45deg);
+      }
+
+      &--right {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+
+  .card-number {
+    color: #49F4FF;
+  }
+}

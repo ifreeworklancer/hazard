@@ -1,0 +1,25 @@
+$light: #CECECE;
+$primary: #fff;
+$dark: #222;
+$secondary: #999999;
+
+$body-color: #fff;
+$body-bg: #222;
+
+$font-size-base: 1.25rem;
+$font-family-base: 'Gugi',
+sans-serif;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1300px,
+        xxl: 1550px
+);
+
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.25;
+$h4-font-size: $font-size-base * 1.125;
+

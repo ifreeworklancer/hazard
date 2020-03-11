@@ -1,0 +1,121 @@
+$preview_height: 450px;
+
+.previews {
+  position: relative;
+  display: none;
+  @extend %img;
+
+  &-slider {
+    display: block;
+    width: 95%;
+    margin: 0 auto 20px;
+    height: $preview_height;
+  }
+
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 45%;
+    background: linear-gradient(189.96deg, rgba(34, 34, 34, 0) 17.93%, $dark 109.49%);
+    z-index: 4;
+  }
+
+  &-content {
+    position: relative;
+    padding: 0 60px 50px;
+    z-index: 5;
+
+    .title {
+      color: #fff;
+    }
+  }
+}
+
+.slick-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slider-description {
+  position: absolute;
+  left: 60px;
+  right: 60px;
+  bottom: 50px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  display: none;
+
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    display: flex;
+  }
+
+  .title {
+    user-select: none;
+  }
+}
+
+.slider-pagination {
+  display: flex;
+  align-items: center;
+
+  &-item {
+    margin-right: 4px;
+    user-select: none;
+  }
+}
+
+.slick-item {
+  width: 100%;
+  height: $preview_height;
+  @extend %img;
+
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    height: 100vh;
+  }
+
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 35px;
+  left: 0;
+  z-index: 20;
+
+
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    bottom: 200px;
+  }
+
+  &-item {
+    display: flex;
+    padding: 10px 20px;
+    margin-bottom: 7px;
+    border: none;
+    cursor: pointer;
+
+    svg {
+      fill: transparent;
+      stroke: $dark;
+      transition: .5s;
+    }
+
+    &:hover {
+      svg {
+        stroke: #fff;
+      }
+    }
+  }
+}

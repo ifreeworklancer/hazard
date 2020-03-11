@@ -1,0 +1,267 @@
+$padding-products-x-md: 15px;
+$padding-products-x-lg: 30px;
+$padding-products-x-xl: 50px;
+
+.content-cart {
+  padding: 0 !important;
+
+  .content-header {
+    display: none;
+
+    &::before {
+      left: 0 !important;
+      right: 0 !important;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, sm)) {
+      display: block;
+      padding: 20px $padding-products-x-md;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      padding: 20px $padding-products-x-lg;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      padding: 100px $padding-products-x-xl 40px;
+    }
+  }
+
+  .content-body {
+    padding-top: 40px;
+    padding-bottom: 400px;
+
+    @media (min-width: map_get($grid-breakpoints, sm)) {
+      padding-bottom: 20px;
+    }
+  }
+
+
+  .cart-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-item {
+      width: 25%;
+      text-align: left;
+      color: $secondary;
+
+      &--size {
+        width: 20%;
+        text-align: center;
+      }
+
+      &--quantity {
+        width: 27%;
+      }
+
+      &--price {
+        width: 20%;
+        text-align: left;
+      }
+    }
+  }
+
+  .cart-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    padding: 0 15px;
+
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      padding: 15px $padding-products-x-lg;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      padding: 15px $padding-products-x-xl;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, xxl)) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+
+    &::before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background: #fff;
+      transition: .5s;
+      display: none;
+
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        display: block;
+      }
+
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+
+    &:hover {
+
+      .cart-item-value--title {
+
+        &::before,
+        &::after {
+          opacity: .6;
+        }
+      }
+
+      &::before {
+        width: 25px;
+      }
+
+      &::after {
+        width: 20px;
+      }
+    }
+
+    &-value {
+
+      &-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (min-width: map_get($grid-breakpoints, xxl)) {
+          width: 60%;
+          justify-content: space-between;
+        }
+      }
+
+      &--title {
+        padding-right: 15px;
+        @extend %neon-text-hover;
+        margin-bottom: 15px;
+
+        @media (min-width: map_get($grid-breakpoints, xxl)) {
+          width: 20%;
+          margin-bottom: 0;
+          padding-right: 0;
+        }
+      }
+
+      &--select {
+        display: flex;
+        align-items: center;
+
+        @media (min-width: map_get($grid-breakpoints, xxl)) {
+          justify-content: center;
+        }
+
+        .selected {
+          margin-left: 35px;
+
+          &:first-of-type {
+            width: 100px;
+            margin-left: 0;
+          }
+        }
+      }
+
+      &--price {
+        font-size: .875rem;
+        text-align: right;
+        text-transform: uppercase;
+
+        @media (min-width: map_get($grid-breakpoints, xxl)) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .close-cart-item {
+      position: absolute;
+      right: 15px;
+      top: 5px;
+      display: block;
+      width: 12px;
+      height: 12px;
+
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        top: 20px;
+      }
+
+      @media (min-width: map_get($grid-breakpoints, xxl)) {
+        position: relative;
+        width: 25px;
+        height: 25px;
+        top: auto;
+      }
+
+      &:hover {
+
+        .line {
+          background: rgba(#545454, 1);
+        }
+      }
+
+      .line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        border-radius: 2px;
+        background: rgba(#545454, .7);
+        transition: .5s;
+        cursor: pointer;
+
+        @media (min-width: map_get($grid-breakpoints, xxl)) {
+          width: 4px;
+        }
+
+        &--left {
+          transform: rotate(-45deg);
+        }
+
+        &--right {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      padding: 30px $padding-products-x-lg;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      padding: 30px $padding-products-x-xl;
+    }
+
+    &-description {
+      &__title {
+        color: $secondary;
+        margin-bottom: 15px;
+        font-size: 1rem;
+      }
+
+      &__value {
+        font-size: $h3-font-size;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,100 @@
+$padding-products-x-md: 15px;
+$padding-products-x-lg: 50px;
+$padding-products-x-xl: 70px;
+
+.content-products {
+
+  .product-nav {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .product-categories {
+
+    li {
+      width: 33.333%;
+      font-size: .75rem;
+
+      @media (min-width: map_get($grid-breakpoints, xxl)) {
+        width: 25%;
+        font-size: 1rem;
+      }
+
+      span {
+        display: inline-block;
+        padding: 5px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        color: $secondary;
+        transition: .5s;
+
+
+        @media (min-width: map_get($grid-breakpoints, md)) {
+          padding: 10px 15px;
+        }
+
+        &:hover,
+        &.active {
+          background: $primary;
+          color: $dark;
+        }
+      }
+    }
+  }
+
+  .product-items {
+    justify-content: flex-start;
+
+    li {
+      position: relative;
+      width: 100%;
+      margin-bottom: 4px;
+
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        width: 30%;
+        margin: 30px 1.5%;
+      }
+
+      .image {
+        @extend %pos;
+        @extend %img;
+
+        @media (min-width: map_get($grid-breakpoints, md)) {
+          display: none;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 45%;
+          background: linear-gradient(189.96deg, rgba(34, 34, 34, 0) 17.93%, $dark 109.49%);
+        }
+      }
+
+      a {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        height: 440px;
+        padding: 30px;
+
+        @media (min-width: map_get($grid-breakpoints, md)) {
+          display: block;
+          padding: 0;
+          height: auto;
+        }
+
+        h5 {
+          @extend %neon-text-hover;
+          margin: 0;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

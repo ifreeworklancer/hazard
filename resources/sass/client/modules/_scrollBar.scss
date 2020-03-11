@@ -1,0 +1,18 @@
+.ps-container {
+
+  .ps__scrollbar-y-rail {
+    width: 15px !important;
+    background: #333333;
+
+    &:hover {
+      background: #333333 !important;
+    }
+  }
+
+  .ps__scrollbar-y {
+    right: 0 !important;
+    border-radius: 0px !important;
+    width: 16px !important;
+    background: #fff !important;
+  }
+}
